@@ -9,7 +9,7 @@ GLOBAL_DATUM(escape_menu_details, /atom/movable/screen/escape_menu/details)
 	return GLOB.escape_menu_details
 
 /atom/movable/screen/escape_menu/details
-	screen_loc = "EAST:-180,NORTH:-25"
+	screen_loc = "EAST:-180,NORTH:-34"
 	maptext_height = 100
 	maptext_width = 200
 
@@ -33,9 +33,9 @@ GLOBAL_DATUM(escape_menu_details, /atom/movable/screen/escape_menu/details)
 /atom/movable/screen/escape_menu/details/proc/update_text()
 	var/new_maptext = {"
 		<span style='text-align: right; line-height: 0.7'>
-			Номер раунда: [GLOB.round_id || "Unset"]<br />
-			Продолжительность раунда: [ROUND_TIME()]<br />
-			Карта: [SSmapping.current_map.map_name || "Загрузка..."]<br />
+			Round ID: [GLOB.round_id || "Unset"]<br />
+			[SSticker.round_start_time ? "Round Time" : "Lobby Time"]: [STATION_TIME_PASSED() > MIDNIGHT_ROLLOVER ? "[round(STATION_TIME_PASSED() / MIDNIGHT_ROLLOVER)]:[gameTimestamp(wtime = STATION_TIME_PASSED())]" : gameTimestamp(wtime = STATION_TIME_PASSED())]<br />
+			Map: [SSmapping.current_map.map_name || "Loading..."]<br />
 			Time Dilation: [round(SStime_track.time_dilation_current,1)]%<br />
 		</span>
 	"}
