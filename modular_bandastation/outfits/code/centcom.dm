@@ -12,7 +12,8 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/centcom,
 		/obj/item/ammo_box/a357 = 3,
-		/obj/item/storage/fancy/cigarettes/cigars
+		/obj/item/storage/fancy/cigarettes/cigars,
+		/obj/item/door_remote/omni
 	)
 	belt = /obj/item/gun/ballistic/revolver/mateba
 	ears = /obj/item/radio/headset/headset_cent/commander
@@ -65,6 +66,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/centcom,
 		/obj/item/stamp/centcom,
+		/obj/item/door_remote/omni
 	)
 	belt = /obj/item/gun/energy/pulse/pistol/m1911
 	ears = /obj/item/radio/headset/headset_cent/commander
@@ -144,3 +146,16 @@
 /datum/id_trim/centcom/diplomat/New()
 	. = ..()
 	access = list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING) | (SSid_access.get_region_access_list(list(REGION_ALL_STATION)) - ACCESS_CHANGE_IDS)
+
+// Death Squad
+
+/datum/outfit/centcom/death_commando/officer
+	name = "Death Commando Officer"
+	backpack_contents = list(
+		/obj/item/ammo_box/a357 = 1,
+		/obj/item/flashlight = 1,
+		/obj/item/grenade/c4/x4 = 1,
+		/obj/item/storage/box/flashbangs = 1,
+		/obj/item/storage/medkit/regular = 1,
+		/obj/item/obj/item/disk/nuclear
+	)
