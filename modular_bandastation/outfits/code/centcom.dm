@@ -149,13 +149,27 @@
 
 // Death Squad
 
+/datum/antagonist/ert/deathsquad/on_gain() // Give deathsquad nuke code when ERT is summoned
+	. = ..()
+	var/datum/objective/missionobj = new ()
+	var/nuke_code
+	var/obj/machinery/nuclearbomb/selfdestruct/nuke = locate() in SSmachines.get_machines_by_type(/obj/machinery/nuclearbomb/selfdestruct)
+	nuke_code = random_nukecode()
+	if(nuke.r_code == NUKE_CODE_UNSET)
+		nuke.r_code = nuke_code
+	else //Already set by admins/something else?
+		nuke_code = nuke.r_code
+	missionobj.owner = owner
+	missionobj.explanation_text = "Запустите механизм самоуничтожения на [station_name()], коды активации: [nuke.r_code]"
+	missionobj.completed = TRUE
+	objectives |= missionobj
+
 /datum/outfit/centcom/death_commando/officer
-	name = "Death Commando Officer"
 	backpack_contents = list(
 		/obj/item/ammo_box/a357 = 1,
 		/obj/item/flashlight = 1,
 		/obj/item/grenade/c4/x4 = 1,
 		/obj/item/storage/box/flashbangs = 1,
 		/obj/item/storage/medkit/regular = 1,
-		/obj/item/obj/item/disk/nuclear
+		/obj/item/disk/nuclear
 	)
