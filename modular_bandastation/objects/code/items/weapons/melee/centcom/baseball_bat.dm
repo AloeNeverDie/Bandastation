@@ -16,6 +16,7 @@
 	icon = 'modular_bandastation/objects/icons/obj/weapons/baseball_bat/baseball_bat_centcom.dmi'
 	lefthand_file = 'modular_bandastation/objects/icons/obj/weapons/baseball_bat/baseball_bat_lefthand.dmi'
 	righthand_file = 'modular_bandastation/objects/icons/obj/weapons/baseball_bat/baseball_bat_righthand.dmi'
+	slot_flags = ITEM_SLOT_BELT
 	/// Item state when concealed
 	inhand_icon_state = "centcom_bat_0"
 	/// Item state when extended
